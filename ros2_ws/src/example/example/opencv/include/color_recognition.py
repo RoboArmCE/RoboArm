@@ -19,7 +19,7 @@ class ColorDetection(Node):
         self.bridge = CvBridge()  # 用于ROS Image消息与OpenCV图像之间的转换
 
         self.display = self.get_parameter('enable_display').value
-        self.data = common.get_yaml_data("/home/jetson/repos/ros2_ws/src/app/config/lab_config.yaml")  
+        self.data = common.get_yaml_data("/home/jetson/repos/RoboArm/ros2_ws/src/app/config/lab_config.yaml")  
         self.lab_data = self.data['/**']['ros__parameters'] 
 
 

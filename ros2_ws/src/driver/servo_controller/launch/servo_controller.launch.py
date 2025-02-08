@@ -12,7 +12,7 @@ def generate_launch_description():
     if compiled == 'True':
         servo_controller_package_path = get_package_share_directory('servo_controller')
     else:
-        servo_controller_package_path = '/home/jetson/repos/ros2_ws/src/driver/servo_controller'
+        servo_controller_package_path = '/home/jetson/repos/RoboArm/ros2_ws/src/driver/servo_controller'
 
     servo_controller_node = Node(
         package='servo_controller',

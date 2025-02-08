@@ -13,8 +13,8 @@ def launch_setup(context):
         sdk_package_path = get_package_share_directory('sdk')
         peripherals_package_path = get_package_share_directory('peripherals')
     else:
-        sdk_package_path = '/home/jetson/repos/ros2_ws/src/driver/sdk'
-        peripherals_package_path = '/home/jetson/repos/ros2_ws/src/peripherals'
+        sdk_package_path = '/home/jetson/repos/RoboArm/ros2_ws/src/driver/sdk'
+        peripherals_package_path = '/home/jetson/repos/RoboArm/ros2_ws/src/peripherals'
 
     sdk_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(

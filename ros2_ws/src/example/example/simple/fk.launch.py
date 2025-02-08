@@ -12,7 +12,7 @@ def generate_launch_description():
     if compiled == 'True':
         sdk_package_path = get_package_share_directory('sdk')
     else:
-        sdk_package_path = '/home/jetson/repos/ros2_ws/src/driver/sdk'
+        sdk_package_path = '/home/jetson/repos/RoboArm/ros2_ws/src/driver/sdk'
 
 
     sdk_launch = IncludeLaunchDescription(

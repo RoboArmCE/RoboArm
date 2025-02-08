@@ -14,8 +14,8 @@ def launch_setup(context):
         sdk_package_path = get_package_share_directory('sdk')
         example_package_path = get_package_share_directory('example')
     else:
-        sdk_package_path = '/home/jetson/repos/ros2_ws/src/driver/sdk'
-        example_package_path = '/home/jetson/repos/ros2_ws/src/example'
+        sdk_package_path = '/home/jetson/repos/RoboArm/ros2_ws/src/driver/sdk'
+        example_package_path = '/home/jetson/repos/RoboArm/ros2_ws/src/example'
     
     sdk_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(

@@ -264,7 +264,7 @@ class TagStackup(Node):
     def place(self):
         
         while self.start_place :
-            self.config_data = common.get_yaml_data("/home/jetson/repos/ros2_ws/src/app/config/positions.yaml")
+            self.config_data = common.get_yaml_data("/home/jetson/repos/RoboArm/ros2_ws/src/app/config/positions.yaml")
 
             position =  list(self.config_data['tag_stackup']['target_1'])
             position[2] = position[2] + self.target_position[0][2]
@@ -354,7 +354,7 @@ class TagStackup(Node):
                     if self.target_count > 15:
                         self.target_count = 0
                         if self.stackup_step == 0 and self.enable_stackup and tags[0].tag_id != 100:
-                            config_data = common.get_yaml_data("/home/jetson/repos/ros2_ws/src/app/config/positions.yaml")
+                            config_data = common.get_yaml_data("/home/jetson/repos/RoboArm/ros2_ws/src/app/config/positions.yaml")
                             offset = tuple(config_data['tag_stackup']['offset'])
                             scale = tuple(config_data['tag_stackup']['scale'])
                             pose_world_T[2] = 0.015

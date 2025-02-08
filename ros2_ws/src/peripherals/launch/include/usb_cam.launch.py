@@ -8,7 +8,7 @@ def generate_launch_description():
     if compiled == 'True':
         peripherals_package_path = get_package_share_directory('peripherals')
     else:
-        peripherals_package_path = '/home/jetson/repos/ros2_ws/src/peripherals'
+        peripherals_package_path = '/home/jetson/repos/RoboArm/ros2_ws/src/peripherals'
     camera_nodes = Node(
             package='usb_cam', 
             executable='usb_cam_node_exe', 

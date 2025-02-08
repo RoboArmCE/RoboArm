@@ -15,9 +15,9 @@ def launch_setup(context):
         example_package_path = get_package_share_directory('example')
         app_package_path = get_package_share_directory('app')
     else:
-        peripherals_package_path = '/home/jetson/repos/ros2_ws/src/peripherals'
-        example_package_path = '/home/jetson/repos/ros2_ws/src/example'
-        app_package_path = '/home/jetson/repos/ros2_ws/src/app'
+        peripherals_package_path = '/home/jetson/repos/RoboArm/ros2_ws/src/peripherals'
+        example_package_path = '/home/jetson/repos/RoboArm/ros2_ws/src/example'
+        app_package_path = '/home/jetson/repos/RoboArm/ros2_ws/src/app'
 
     depth_camera_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(

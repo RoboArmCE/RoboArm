@@ -57,7 +57,7 @@ class WasteClassificationNode(Node):
         self.pick_pitch = 80
         self.current_class_name = None
         self.config_file = 'transform.yaml'
-        self.config_path = "/home/jetson/repos/ros2_ws/src/app/config/"
+        self.config_path = "/home/jetson/repos/RoboArm/ros2_ws/src/app/config/"
 
         with open(self.config_path + self.config_file, 'r') as f:
             config = yaml.safe_load(f)
@@ -310,7 +310,7 @@ class WasteClassificationNode(Node):
                 target = 'target_3'
             elif waste_category == 'recyclable_waste':
                 target = 'target_4'
-            config_data = common.get_yaml_data("/home/jetson/repos/ros2_ws/src/app/config/positions.yaml")
+            config_data = common.get_yaml_data("/home/jetson/repos/RoboArm/ros2_ws/src/app/config/positions.yaml")
             position = list(config_data['waste_classification'][target])
             position[2] += 0.03
             msg = set_pose_target(position, self.pick_pitch,  [-90.0, 90.0], 1.0)
@@ -407,7 +407,7 @@ class WasteClassificationNode(Node):
                 world_pose[2] = 0.04
                 pose_t, _ = common.mat_to_xyz_euler(world_pose)
                 pose_t[2] = 0.015
-                config_data = common.get_yaml_data("/home/jetson/repos/ros2_ws/src/app/config/positions.yaml")
+                config_data = common.get_yaml_data("/home/jetson/repos/RoboArm/ros2_ws/src/app/config/positions.yaml")
                 offset = tuple(config_data['waste_classification']['offset'])
                 scale = tuple(config_data['waste_classification']['scale'])
                 for i in range(3):

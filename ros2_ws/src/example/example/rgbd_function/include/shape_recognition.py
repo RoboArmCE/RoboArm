@@ -101,7 +101,7 @@ class ObjectClassificationNode(Node):
         self.kinematics_client = self.create_client(SetRobotPose, '/kinematics/set_pose_target')
         self.kinematics_client.wait_for_service()
 
-        self.controller = ActionGroupController(self.create_publisher(ServosPosition, 'servo_controller', 1), '/home/jetson/repos/arm_pc/ActionGroups')
+        self.controller = ActionGroupController(self.create_publisher(ServosPosition, 'servo_controller', 1), '/home/jetson/repos/RoboArm/arm_pc/ActionGroups')
 
         self.timer = self.create_timer(0.0, self.init_process, callback_group=timer_cb_group)
 

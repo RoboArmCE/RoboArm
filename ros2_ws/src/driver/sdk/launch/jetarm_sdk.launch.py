@@ -17,9 +17,9 @@ def launch_setup(context):
         servo_controller_package_path = get_package_share_directory('servo_controller')
         kinematics_package_path = get_package_share_directory('kinematics')
     else:
-        ros_robot_controller_package_path = '/home/jetson/repos/ros2_ws/src/driver/ros_robot_controller'
-        servo_controller_package_path = '/home/jetson/repos/ros2_ws/src/driver/servo_controller'
-        kinematics_package_path = '/home/jetson/repos/ros2_ws/src/driver/kinematics'
+        ros_robot_controller_package_path = '/home/jetson/repos/RoboArm/ros2_ws/src/driver/ros_robot_controller'
+        servo_controller_package_path = '/home/jetson/repos/RoboArm/ros2_ws/src/driver/servo_controller'
+        kinematics_package_path = '/home/jetson/repos/RoboArm/ros2_ws/src/driver/kinematics'
 
     ros_robot_controller_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource([os.path.join(ros_robot_controller_package_path, 'launch/ros_robot_controller.launch.py')

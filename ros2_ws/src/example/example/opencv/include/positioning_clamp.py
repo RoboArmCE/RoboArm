@@ -33,7 +33,7 @@ class PositioningClamp(Node):
         self.pick_pitch = 80
         self.result_image = None
         self.config_file = 'transform.yaml'
-        self.config_path = "/home/jetson/repos/ros2_ws/src/app/config/"
+        self.config_path = "/home/jetson/repos/RoboArm/ros2_ws/src/app/config/"
         with open(self.config_path + self.config_file, 'r') as f:
             config = yaml.safe_load(f)
 

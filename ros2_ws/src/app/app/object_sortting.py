@@ -71,10 +71,10 @@ class ObjectSorttingNode(Node):
         self.white_area_height = 0.135
         self.size = {'width': 640, 'height':480}
         self.config_file = 'transform.yaml'
-        self.config_path = "/home/jetson/repos/ros2_ws/src/app/config/"
-        self.data = common.get_yaml_data("/home/jetson/repos/ros2_ws/src/app/config/lab_config.yaml")  
+        self.config_path = "/home/jetson/repos/RoboArm/ros2_ws/src/app/config/"
+        self.data = common.get_yaml_data("/home/jetson/repos/RoboArm/ros2_ws/src/app/config/lab_config.yaml")  
         self.lab_data = self.data['/**']['ros__parameters'] 
-        # self.lab_data = common.get_yaml_data("/home/jetson/repos/software/lab_tool/lab_config.yaml")
+        # self.lab_data = common.get_yaml_data("/home/jetson/repos/RoboArm/software/lab_tool/lab_config.yaml")
         # min_area < 物体的颜色面积 < max_area(min_area < color area of object < max_area)
         self.min_area = 500
         self.max_area = 7000 
@@ -401,7 +401,7 @@ class ObjectSorttingNode(Node):
         while self.start_place :
             if 'tag' in self.target[0]:
                 target = 'target_' + self.target[0][-1]
-                config_data = common.get_yaml_data("/home/jetson/repos/ros2_ws/src/app/config/positions.yaml")
+                config_data = common.get_yaml_data("/home/jetson/repos/RoboArm/ros2_ws/src/app/config/positions.yaml")
                 position = list(config_data['tag_sortting'][target])
             else:
                 if self.target[0] == 'red':
@@ -410,7 +410,7 @@ class ObjectSorttingNode(Node):
                     target_name = 'target_2'
                 else:
                     target_name = 'target_3'
-                config_data = common.get_yaml_data("/home/jetson/repos/ros2_ws/src/app/config/positions.yaml")
+                config_data = common.get_yaml_data("/home/jetson/repos/RoboArm/ros2_ws/src/app/config/positions.yaml")
 
                 position = list(config_data['color_sortting'][target_name])
 
@@ -530,7 +530,7 @@ class ObjectSorttingNode(Node):
                             world_pose[2] = 0.030
                             pose_t, _ = common.mat_to_xyz_euler(world_pose)
                             pose_t[2] = 0.010
-                            config_data = common.get_yaml_data("/home/jetson/repos/ros2_ws/src/app/config/positions.yaml")
+                            config_data = common.get_yaml_data("/home/jetson/repos/RoboArm/ros2_ws/src/app/config/positions.yaml")
                             offset = tuple(config_data['color_sortting']['offset'])
                             scale = tuple(config_data['color_sortting']['scale'])
                             # self.get_logger().info("pose_t: "+ str(pose_t))
@@ -565,7 +565,7 @@ class ObjectSorttingNode(Node):
                             self.count = 0
                             pose_world_T[2] = 0.015
                             for i in range(3):
-                                config_data = common.get_yaml_data("/home/jetson/repos/ros2_ws/src/app/config/positions.yaml")
+                                config_data = common.get_yaml_data("/home/jetson/repos/RoboArm/ros2_ws/src/app/config/positions.yaml")
                                 offset = tuple(config_data['tag_sortting']['offset'])
                                 scale = tuple(config_data['tag_sortting']['scale'])
                                 for i in range(3):

@@ -38,7 +38,7 @@ class ColorDetectNode(Node):
         self.weight_sum = 1.0
         self.image_queue = queue.Queue(maxsize=2)
         self.fps = fps.FPS()  # fps计算器
-        self.data = common.get_yaml_data("/home/jetson/repos/ros2_ws/src/app/config/lab_config.yaml")  
+        self.data = common.get_yaml_data("/home/jetson/repos/RoboArm/ros2_ws/src/app/config/lab_config.yaml")  
         self.lab_data = self.data['/**']['ros__parameters'] 
         
         self.bridge = CvBridge()

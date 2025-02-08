@@ -36,7 +36,7 @@ class CalibrationNode(Node):
         self.tag_id = 1
         self.tag_id_2 = 100
         self.config_file = 'config.yaml'
-        self.config_path = "/home/jetson/repos/ros2_ws/src/bringup/config/"
+        self.config_path = "/home/jetson/repos/RoboArm/ros2_ws/src/bringup/config/"
         
         # 创建发布者
         self.joints_pub = self.create_publisher(ServosPosition, '/servo_controller', 1)

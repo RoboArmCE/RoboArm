@@ -53,7 +53,7 @@ class ColorSortingNode(Node):
         self.pick_pitch = 80
         self.language = os.environ['ASR_LANGUAGE']
         self.config_file = 'transform.yaml'
-        self.config_path = "/home/jetson/repos/ros2_ws/src/app/config/"
+        self.config_path = "/home/jetson/repos/RoboArm/ros2_ws/src/app/config/"
         self.pose_t = None
         self.start = False
         self.start_pick = False
@@ -185,7 +185,7 @@ class ColorSortingNode(Node):
                     world_pose = np.matmul(self.white_area_center, common.xyz_euler_to_mat(world_pose, (0, 0, 0)))  # 转换到相机相对坐标(convert to the camera relative coordinates)
                     world_pose[2] = 0.02
                     pose_t, _ = common.mat_to_xyz_euler(world_pose)
-                    config_data = common.get_yaml_data("/home/jetson/repos/ros2_ws/src/app/config/positions.yaml")
+                    config_data = common.get_yaml_data("/home/jetson/repos/RoboArm/ros2_ws/src/app/config/positions.yaml")
                     offset = tuple(config_data['color_sortting']['offset'])
                     scale = tuple(config_data['color_sortting']['scale'])
                     for i in range(3):

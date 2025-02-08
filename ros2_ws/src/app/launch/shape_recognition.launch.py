@@ -11,7 +11,7 @@ def launch_setup(context):
     if compiled == 'True':
         app_package_path = get_package_share_directory('app')
     else:
-        app_package_path = '/home/jetson/repos/ros2_ws/src/app'
+        app_package_path = '/home/jetson/repos/RoboArm/ros2_ws/src/app'
 
 
     shape_recognition_node = Node(
