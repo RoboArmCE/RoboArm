@@ -52,10 +52,10 @@ class BringUpNotifyNode(Node):
             os.environ['AUDIODRIVER'] = 'alsa'
 
             if self.lang == 'Chinese':
-                os.system('aplay -q -fS16_LE -r16000 -c1 -N --buffer-size=81920 ' + "/home/enrique/repos/ros2_ws/src/bringup/voice/Chinese/running.wav")
+                os.system('aplay -q -fS16_LE -r16000 -c1 -N --buffer-size=81920 ' + "/home/jetson/repos/ros2_ws/src/bringup/voice/Chinese/running.wav")
                 self.get_logger().info('\033[1;32m%s\033[0m' % "准备就绪")
             else:
-                os.system('aplay -q -fS16_LE -r16000 -c1 -N --buffer-size=81920 ' + "/home/enrique/repos/ros2_ws/src/bringup/voice/running.wav")
+                os.system('aplay -q -fS16_LE -r16000 -c1 -N --buffer-size=81920 ' + "/home/jetson/repos/ros2_ws/src/bringup/voice/running.wav")
                 self.get_logger().info('\033[1;32m%s\033[0m' % "I am ready")
             # 设置蜂鸣器和播放音频
             msg = BuzzerState()

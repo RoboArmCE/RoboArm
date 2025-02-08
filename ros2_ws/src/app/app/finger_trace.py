@@ -155,7 +155,7 @@ class HandGestureNode(Node):
         self.exit_srv = self.create_service(Trigger, '~/exit', self.exit_srv_callback)
         self.create_service(SetBool, '~/enable_trace', self.start_srv_callback, callback_group=self.timer_cb_group) # 进入玩法
         self.result_publisher = self.create_publisher(Image, '~/image_result',  1)
-        self.controller = ActionGroupController(self.create_publisher(ServosPosition, 'servo_controller', 1), '/home/enrique/repos/arm_pc/ActionGroups')
+        self.controller = ActionGroupController(self.create_publisher(ServosPosition, 'servo_controller', 1), '/home/jetson/repos/arm_pc/ActionGroups')
         self.client = self.create_client(Trigger, '/controller_manager/init_finish')
         self.client.wait_for_service()
        

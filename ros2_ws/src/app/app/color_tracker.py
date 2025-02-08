@@ -18,7 +18,7 @@ class ColorTracker:
         self.yaw = 500
         self.pitch = 0.28
     
-        self.data = common.get_yaml_data("/home/enrique/repos/ros2_ws/src/app/config/lab_config.yaml")  
+        self.data = common.get_yaml_data("/home/jetson/repos/ros2_ws/src/app/config/lab_config.yaml")  
         self.lab_data = self.data['/**']['ros__parameters'] 
     def proc (self, source_image, result_image):
         h, w = source_image.shape[:2]

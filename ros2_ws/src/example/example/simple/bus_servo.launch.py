@@ -12,7 +12,7 @@ def generate_launch_description():
     if compiled == 'True':
         robot_controller_package_path = get_package_share_directory('ros_robot_controller')
     else:
-        robot_controller_package_path = '/home/enrique/repos/ros2_ws/src/driver/ros_robot_controller'
+        robot_controller_package_path = '/home/jetson/repos/ros2_ws/src/driver/ros_robot_controller'
 
 
     robot_controller_launch = IncludeLaunchDescription(

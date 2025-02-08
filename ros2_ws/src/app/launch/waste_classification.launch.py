@@ -12,8 +12,8 @@ def launch_setup(context):
         example_package_path = get_package_share_directory('example')
         app_package_path = get_package_share_directory('app')
     else:
-        example_package_path = '/home/enrique/repos/ros2_ws/src/example'
-        app_package_path = '/home/enrique/repos/ros2_ws/src/app'
+        example_package_path = '/home/jetson/repos/ros2_ws/src/example'
+        app_package_path = '/home/jetson/repos/ros2_ws/src/app'
 
     yolov8_node = Node(
         package='example',

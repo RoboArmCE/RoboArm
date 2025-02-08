@@ -152,7 +152,7 @@ class HandGestureNode(Node):
         self.create_service(Trigger, '~/start', self.start_srv_callback, callback_group=timer_cb_group) # 进入玩法
         self.create_service(Trigger, '~/stop', self.stop_srv_callback, callback_group=timer_cb_group) # 退出玩法
 
-        self.controller = ActionGroupController(self.create_publisher(ServosPosition, 'servo_controller', 1), '/home/enrique/repos/arm_pc/ActionGroups')
+        self.controller = ActionGroupController(self.create_publisher(ServosPosition, 'servo_controller', 1), '/home/jetson/repos/arm_pc/ActionGroups')
         self.client = self.create_client(Trigger, '/controller_manager/init_finish')
         self.client.wait_for_service()
         self.timer = self.create_timer(0.0, self.init_process, callback_group=timer_cb_group)

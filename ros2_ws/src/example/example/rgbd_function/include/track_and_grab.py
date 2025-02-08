@@ -117,9 +117,9 @@ class TrackAndGrabNode(Node):
 
         self.enable_disp = 1
         signal.signal(signal.SIGINT, self.shutdown)
-        self.data = common.get_yaml_data("/home/enrique/repos/ros2_ws/src/app/config/lab_config.yaml")  
+        self.data = common.get_yaml_data("/home/jetson/repos/ros2_ws/src/app/config/lab_config.yaml")  
         self.lab_data = self.data['/**']['ros__parameters'] 
-        # self.lab_data = common.get_yaml_data("/home/enrique/repos/software/lab_tool/lab_config.yaml")
+        # self.lab_data = common.get_yaml_data("/home/jetson/repos/software/lab_tool/lab_config.yaml")
         self.last_position = (0, 0, 0)
         self.stamp = time.time()
 

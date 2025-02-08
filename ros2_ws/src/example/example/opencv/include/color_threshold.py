@@ -23,7 +23,7 @@ class Camera(Node):
         self.thread_started = False 
 
         self.image_queue = queue.Queue(maxsize=2)
-        self.data = common.get_yaml_data("/home/enrique/repos/ros2_ws/src/app/config/lab_config.yaml")  
+        self.data = common.get_yaml_data("/home/jetson/repos/ros2_ws/src/app/config/lab_config.yaml")  
         self.lab_data = self.data['/**']['ros__parameters'] 
         # 创建 CvBridge 对象，用于将 ROS Image 转为 OpenCV 格式
         self.bridge = CvBridge()

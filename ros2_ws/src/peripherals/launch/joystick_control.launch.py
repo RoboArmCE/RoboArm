@@ -12,7 +12,7 @@ def launch_setup(context):
     if compiled == 'True':
         sdk_package_path = get_package_share_directory('sdk')
     else:
-        sdk_package_path = '/home/enrique/repos/ros2_ws/src/driver/sdk'
+        sdk_package_path = '/home/jetson/repos/ros2_ws/src/driver/sdk'
 
     sdk_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(

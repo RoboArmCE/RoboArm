@@ -61,7 +61,7 @@ class WasteClassificationNode(Node):
         self.start_count = False
 
         self.config_file = 'transform.yaml'
-        self.config_path = "/home/enrique/repos/ros2_ws/src/app/config/"
+        self.config_path = "/home/jetson/repos/ros2_ws/src/app/config/"
         self.pick_pitch = 80
         self.current_class_name = None
         self.fps = fps.FPS()  # fps计算器
@@ -305,7 +305,7 @@ class WasteClassificationNode(Node):
                 world_pose[2] = 0.04
                 pose_t, _ = common.mat_to_xyz_euler(world_pose)
                 pose_t[2] = 0.015
-                config_data = common.get_yaml_data("/home/enrique/repos/ros2_ws/src/app/config/positions.yaml")
+                config_data = common.get_yaml_data("/home/jetson/repos/ros2_ws/src/app/config/positions.yaml")
                 offset = tuple(config_data['waste_classification']['offset'])
                 scale = tuple(config_data['waste_classification']['scale'])
                 for i in range(3):

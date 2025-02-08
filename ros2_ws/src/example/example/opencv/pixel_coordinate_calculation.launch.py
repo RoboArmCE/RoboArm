@@ -14,7 +14,7 @@ def launch_setup(context):
     if compiled == 'True':
         example_package_path = get_package_share_directory('example')
     else:
-        example_package_path = '/home/enrique/repos/ros2_ws/src/example'
+        example_package_path = '/home/jetson/repos/ros2_ws/src/example'
 
     color_recognition_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(

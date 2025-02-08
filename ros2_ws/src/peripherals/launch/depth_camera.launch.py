@@ -24,7 +24,7 @@ def generate_launch_description():
     if compiled == 'True':
         peripherals_package_path = get_package_share_directory('peripherals')
     else:
-        peripherals_package_path = '/home/enrique/repos/ros2_ws/src/peripherals'
+        peripherals_package_path = '/home/jetson/repos/ros2_ws/src/peripherals'
 
     if camera_type == 'GEMINI':
         camera_launch = IncludeLaunchDescription(

@@ -16,9 +16,9 @@ def launch_setup(context):
         peripherals_package_path = get_package_share_directory('peripherals')
         example_package_path = get_package_share_directory('example')
     else:
-        sdk_package_path = '/home/enrique/repos/ros2_ws/src/driver/sdk'
-        peripherals_package_path = '/home/enrique/repos/ros2_ws/src/peripherals'
-        example_package_path = '/home/enrique/repos/ros2_ws/src/example'
+        sdk_package_path = '/home/jetson/repos/ros2_ws/src/driver/sdk'
+        peripherals_package_path = '/home/jetson/repos/ros2_ws/src/peripherals'
+        example_package_path = '/home/jetson/repos/ros2_ws/src/example'
 
     sdk_launch = IncludeLaunchDescription(
         PythonLaunchDescriptionSource(

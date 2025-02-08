@@ -47,7 +47,7 @@ class CalibrationNode(Node):
         self.tag_id = 1
         self.tag_id_2 = 100
         self.config_file = 'transform.yaml'
-        self.config_path = "/home/enrique/repos/ros2_ws/src/app/config/"
+        self.config_path = "/home/jetson/repos/ros2_ws/src/app/config/"
         self.white_area_width = 0.175
         self.white_area_height = 0.135
         self.bridge = CvBridge()

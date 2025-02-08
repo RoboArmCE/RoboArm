@@ -29,7 +29,7 @@ class LabConfigManagerNode(Node):
         super().__init__(name, allow_undeclared_parameters=True, automatically_declare_parameters_from_overrides=True)
 
         # 读取需要的参数(read the required parameters)
-        self.config_file_path = "/home/enrique/repos/ros2_ws/src/app/config/lab_config.yaml"
+        self.config_file_path = "/home/jetson/repos/ros2_ws/src/app/config/lab_config.yaml"
         self.color_ranges = self.get_parameters_by_prefix('color_range_list')
         self.kernel_erode = 5
         self.kernel_dilate = 5
