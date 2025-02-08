@@ -1,0 +1,64 @@
+#!/bin/bash
+
+export AUDIODRIVER=alsa
+
+export PATH="/home/ubuntu/.local/bin:$PATH"
+export CUDA_HOME=/usr/local/cuda
+export PATH=$CUDA_HOME/bin:$PATH
+export LD_LIBRARY_PATH=$CUDA_HOME/lib64:$LD_LIBRARY_PATH
+export LD_PRELOAD=/home/ubuntu/third_party_ros2/Open3D/build/lib/Release/libOpen3D.so
+export ROSDISTRO_INDEX_URL=https://mirrors.tuna.tsinghua.edu.cn/rosdistro/index-v4.yaml
+export working_space=/home/ubuntu
+
+# colcon_cd
+export _colcon_cd_root=/opt/ros/humble
+export RCUTILS_COLORIZED_OUTPUT=1
+source /usr/share/colcon_cd/function/colcon_cd.sh
+source /usr/share/colcon_argcomplete/hook/colcon-argcomplete.zsh
+#node
+export NVM_DIR="$([ -z "${XDG_CONFIG_HOME-}" ] && printf %s "${HOME}/.nvm" || printf %s "${XDG_CONFIG_HOME}/nvm")"
+
+source /opt/ros/humble/local_setup.zsh
+source $working_space/ros2_ws/install/local_setup.zsh
+source $working_space/third_party_ros2/third_party_ws/install/local_setup.zsh
+source $working_space/third_party_ros2/orbbec_ws/install/local_setup.zsh
+eval "$(register-python-argcomplete3 ros2)"
+eval "$(register-python-argcomplete3 colcon)"
+
+serial_num=$(cat /proc/device-tree/serial-number)
+
+serial_num=${serial_num: -10}
+
+sn="${serial_num}00000000000000000000000000"
+sn="${sn:0:32}"
+
+HW_WIFI_AP_SSID="HW-${sn:0:8}"
+# 当期版本
+export VERSION="|V1.0.1|App_ROS2_1.0|2024-12-05|"
+
+
+# 摄像头类型:GEMINI/usb_cam
+export CAMERA_TYPE=GEMINI
+
+# 机器类型：JETARM_STARTER/JETARM_ADVANCED
+export MACHINE_TYPE=JETARM_ADVANCED
+
+
+# 语言设置，主要涉及语音部分：Chinese/English
+export ASR_LANGUAGE=Chinese
+
+export need_compile=False
+export ROS_DOMAIN_ID=101
+export HW_WIFI_AP_SSID=$HW_WIFI_AP_SSID
+export CYCLONEDDS_URI=file:///etc/cyclonedds/config.xml
+
+echo -e "----------------------------------------------
+当前环境是ROS2|The current environment is ROS2
+----------------------------------------------"
+echo -e "CAMERA_TYPE:  \033[32m$CAMERA_TYPE\033[0m"
+echo -e "MACHINE: \033[32m$MACHINE_TYPE\033[0m"
+echo -e "HOST:    \033[32m$HOST\033[0m"
+echo -e "MASTER:  \033[32m$MASTER\033[0m"
+echo -e "ROS_DOMAIN_ID: \033[32m$ROS_DOMAIN_ID\033[0m"
+echo -e "HW_WIFI_AP_SSID: \033[32m$HW_WIFI_AP_SSID\033[0m"
+echo -e "VERSION: \033[32m$VERSION\033[0m"

@@ -1,0 +1,161 @@
+ROS2
+
+#关闭自启
+sudo systemctl restart start_app_node.service
+#启动自启
+sudo systemctl restart start_app_node.service
+#关闭所有ROS的进程
+~/.stop_ros.sh
+
+#####################机械臂基础控制#####################
+#控制舵机
+#1.通过话题控制舵机
+ros2 launch sdk jetarm_sdk.launch.py
+ros2 topic list
+ros2 topic pub /ros_robot_controller/bus_servo/set_position ros_robot_controller_msgs/msg/ServosPosition '{"position": [{"id": 1, "position": 700}]}'
+#2.使用python文件控制
+ros2 launch sdk jetarm_sdk.launch.py
+python3 ~/ros2_ws/src/example/example/simple/include/bus_servo_node.py
+#3.启动launch文件控制
+ros2 launch  example bus_servo.launch.py
+
+#控制LED
+#1.通过话题控制LED
+ros2 launch sdk jetarm_sdk.launch.py
+ros2 topic list
+ros2 topic pub /ros_robot_controller/set_led ros_robot_controller_msgs/msg/LedState "{id: 1,on_time: 0.1,off_time: 0.2,repeat: 10}"
+#2使用python文件控制
+ros2 launch sdk jetarm_sdk.launch.py
+python3 ~/ros2_ws/src/example/example/simple/include/led_node.py
+#3启动launch文件控制
+ros2 launch example led.launch.py
+
+#蜂鸣器控制
+#1.蜂鸣器控制节点
+ros2 launch sdk jetarm_sdk.launch.py
+ros2 topic list
+ros2 topic pub /ros_robot_controller/set_buzzer ros_robot_controller_msgs/msg/BuzzerState "{freq: 1900, on_time: 0.1,off_time: 0.2,repeat: 10}"
+#2.使用python文件控制
+ros2 launch sdk jetarm_sdk.launch.py
+python3 ~/ros2_ws/src/example/example/simple/include/buzzer_node.py
+#3.启动launch文件控制
+ros2 launch example buzzer.launch.py
+
+#机械臂上位机
+cd arm_pc 
+python3 main.py 
+
+#舵机调试工具
+cd factory_utils/Bus_Servo_Tool
+python3 main.py
+
+#####################机械臂高级控制#####################
+#正运动学
+#1.通过服务调用
+ros2 launch sdk jetarm_sdk.launch.py
+ros2 service list
+ros2 service call /kinematics/set_joint_value_target kinematics_msgs/srv/SetJointValue "{joint_value: [500.0, 400.0, 300.0, 400.0, 500.0 ]}"
+#2.启动launch文件控制
+ros2 launch example fk.launch.py
+
+#逆运动学
+#1.通过服务调用
+ros2 launch sdk jetarm_sdk.launch.py
+ros2 service list
+ros2 service call /kinematics/set_pose_target kinematics_msgs/srv/SetRobotPose "{position: [0.35, 0.0, 0.24], pitch_range: [-180,180], pitch: 10, resolution: 1 }"
+#2.启动launch文件控制
+ros2 launch example ik.launch.py
+
+#####################ROS+OpenCV课程#####################
+#摄像头调用
+ros2 launch peripherals depth_camera.launch.py
+
+#颜色阈值
+ros2 launch example color_threshold.launch.py
+
+#颜色空间转换
+ros2 launch example color_space.launch.py
+
+#颜色识别
+ros2 launch example color_recognition.launch.py
+
+#像素坐标计算
+ros2 launch example pixel_coordinate_calculation.launch.py
+
+#物体位姿计算
+ros2 launch example object_attitude_calculation.launch.py 
+
+#坐标系转换
+ros2 launch example coordinate_system_transformation.launch.py 
+
+#轨迹规划
+ros2 launch example path_planning.launch.py
+
+#定位夹取
+ros2 launch example positioning_clamp.launch.py
+
+#颜色分拣
+ros2 launch example color_track_node.launch.py
+
+#色块追踪
+ros2 launch example color_tracking.launch.py
+
+#标签追踪
+ros2 launch example tag_tracking.launch.py
+
+#KCF物品追踪
+ros2 launch example kcf_track_node.launch.py
+
+#####################深度学习应用####################
+#机械臂垃圾分类
+ros2 launch example waste_classification.launch.py
+
+
+#三维人脸检测
+ros2 launch example  face_mesh.launch.py
+
+#Mediapipe人脸追踪
+ros2 launch example face_tracking.launch.py
+
+#Mediapipe手势交互
+ros2 launch example hand_gesture.launch.py
+
+#Mediapipe指尖轨迹
+ros2 launch example finger_trajectory.launch.py
+
+
+#####################机械臂深度相机应用课程#####################
+#深度图伪彩色处理
+ros2 launch example get_depth_rgb_img.launch.py
+
+#距离测量
+ros2 launch example distance_measure.launch.py
+
+#深度图的转换
+ros2 launch example rgb_depth_to_pointcloud.launch.py
+
+#高度检测夹取
+ros2 launch example remove_too_high.launch.py 
+
+#三维空间抓取
+ros2 launch example track_and_grab.launch.py 
+
+#三维形状分拣
+ros2 launch example shape_recognition.launch.py
+
+####################语音控制####################
+# #启动麦克风节点
+# ros2 launch xf_mic_asr_offline mic_init.launch.py enable_setting:=true
+
+# #语音控制颜色分拣
+# ros2 launch xf_mic_asr_offline voice_control_color_sorting.launch.py
+
+# #语音控制颜色追踪
+# ros2 launch xf_mic_asr_offline voice_control_color_track.launch.py
+
+
+
+
+
+
+
